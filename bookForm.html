@@ -1,0 +1,64 @@
+<div class="panel-body text-white bg-dark">
+    <form name="bookForm" novalidate>
+        <div><p><h2 style="padding-left:12px">Форма книги</h2></p></div>
+        <div class="form-group" style="padding:5px">
+            <label style="padding-left:12px">Название книги:</label>
+            <input name="name" class="form-control" 
+                ng-model="currentItemBook.books.name" required>
+            <span style="color:red" ng-show="bookForm.name.$invalid || bookForm.name.$untouched">
+                    <span ng-show="bookForm.name.$error.required">
+                        Не указано названия книги
+                    </span>
+            </span>
+        </div>
+        <div class="form-group" style="padding:5px">
+            <label style="padding-left:12px">Жанры:</label>
+            <select name="jenre" class="form-control" 
+            ng-model="currentItemBook.books.jenre" required>
+                <option>Наука</option>
+                <option>Детектив</option>
+                <option>Образование</option>
+                <option>Фантастика</option>
+                <option>Триллер</option>
+                <option>Мистика</option>
+                <option>Фентези</option>
+                <option>Классическая литература</option>
+                <option>Публицистическая литература</option>
+                <option>Компьютерная литература</option>
+            </select>
+            <span style="color:red" ng-show="bookForm.jenre.$invalid || 
+            bookForm.jenre.$untouched">
+                    <span ng-show="bookForm.jenre.$error.required">
+                        Не выбран жанр книги
+                    </span>
+            </span>
+        </div>
+        <div class="form-group" style="padding:5px">
+            <label style="padding-left:12px">Количество страниц:</label>
+            <input type="number" name="page" class="form-control" 
+            ng-model="currentItemBook.books.page" required>
+            <span style="color:red" ng-show="bookForm.page.$invalid || 
+            bookForm.page.$untouched">
+                    <span ng-show="bookForm.page.$error.required">
+                       Не указано количество страниц 
+                    </span>
+            </span>
+        </div>
+        <div style="padding:3px">
+            <a href="#!authorBooks">
+                <button class="btn btn-success" ng-click="saveEditBook(currentItemBook)"
+                ng-disabled="bookForm.name.$invalid && bookForm.name.$untouched || 
+                bookForm.jenre.$invalid && bookForm.jenre.$untouched ||
+                bookForm.page.$invalid && bookForm.page.$untouched"
+                class="btn btn-success">
+                    Сохранить
+                </button>
+            </a>
+            <a href="#!authorBooks">
+                <button class="btn btn-warning" ng-click="cancelEdit()">
+                    Отменить
+                </button>  
+            </a>
+        </div>
+    </form>
+</div>

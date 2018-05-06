@@ -1,0 +1,45 @@
+<div class="panel-body  text-white bg-dark ">
+    <form name="authorForm" novalidate>
+        <div style="padding:5px">
+            <h2>Форма автора</h2>
+        </div>
+        <div class="form-group" style="padding:5px">
+            <label style="padding-left:12px">Имя:</label>
+            <input name="name" class="form-control" ng-model="currentItem.name" required/>
+            <span style="color:red" ng-show="authorForm.name.$invalid || authorForm.name.$untouched">
+                    <span ng-show="authorForm.name.$error.required">Не указано имя автора</span>
+            </span>
+        </div>
+        <div class="form-group" style="padding:5px">
+            <label style="padding-left:12px">Отчество:</label>
+            <input class="form-control" ng-model="currentItem.patronymic"/>
+        </div>
+        <div class="form-group" style="padding:5px">
+            <label style="padding-left:12px">Фамилия:</label>
+            <input name="surname" class="form-control" ng-model="currentItem.surname" required/>
+            <span style="color:red" ng-show="authorForm.surname.$invalid || authorForm.surname.$untouched">
+                <span ng-show="authorForm.surname.$error.required">Не указана фамилия автора</span>
+            </span>
+        </div>
+        <div id="formDate" class="form-group" style="padding:5px">
+            <label style="padding-left:12px">Дата рождения:</label>
+            <input name="birthday" type="date" placeholder="yyyy-MM-dd" max="2010-10-10"
+                required class="form-control" ng-model="currentItem.birthday"/>
+            <span style="color:red" ng-show="authorForm.birthday.$invalid || authorForm.birthday.$untouched">
+                    <span ng-show="authorForm.birthday.$error.required">Не указана дата рождения</span>
+            </span>
+        </div>
+        <div style="padding:3px">
+        <a href="#!authors">
+                <button ng-disabled="authorForm.name.$invalid && authorForm.name.$untouched || 
+                authorForm.surname.$invalid && authorForm.surname.$untouched ||
+                authorForm.birthday.$invalid && authorForm.birthday.$untouched"
+               class="btn btn-success" 
+                ng-click="saveEdit(currentItem)">Сохранить</button> 
+        </a>
+            <a href="#!authors">
+                <button class="btn btn-warning" ng-click="cancelEdit()">Отменить</button>
+            </a>
+        </div>
+    </form>
+</div>

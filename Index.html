@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bookApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="bookObj.js"></script>
+    <script src="module.js"></script>
+    <script src="route.js"></script>
+</head>
+<body class="container">
+    <div class="text-white bg-dark"  style="border-radius:5px">
+        <div class="btn-group btn-group">
+            <a href="#!authors"><button class="btn btn-danger">Список авторов</button></a>
+            <a href="#!books"><button class="btn btn-danger">Список всех книг</button></a>      
+        </div>
+        <div ng-view></div>
+    </div>
+</body>
+</html>

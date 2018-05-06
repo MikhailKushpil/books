@@ -1,0 +1,23 @@
+<div  class="input-group text-white bg-dark">
+    <span class="input-group-addon" id="sizing-addon2" style="padding:7px"> Поиск </span>
+    <input type="text" class="form-control" placeholder="Название книги" 
+    aria-describedby="sizing-addon2" ng-model="test.name">
+  </div>
+<div>
+    <table class="table table-dark table-striped" >
+        <thead>
+                <tr>
+                    <th>#</th>
+                    <th ng-click="booksFilter('name')">Название книги</th>
+                    <th ng-click="booksFilter('page')">Количество страниц</th>
+                    <th ng-click="booksFilter('jenre')">Жанр</th>
+                </tr>
+        </thead>
+        <tr ng-repeat="book in Arry | filter:test | orderBy:byBooksFilter:!sortReverse">
+            <td>{{$index+1}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.page | number}}</td>
+            <td>{{book.jenre}}</td>
+        </tr>
+    </table>
+</div>
